@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(node -e \"const p = require\\(''./node_modules/next/package.json''\\); console.log\\(''next:'', p.version\\)\")",
+      "Bash(node -e \"const p = require\\(''./node_modules/@sanity/client/package.json''\\); console.log\\(''@sanity/client:'', p.version\\)\")",
+      "Bash(node -e \"const p = require\\(''./node_modules/stripe/package.json''\\); console.log\\(''stripe:'', p.version\\)\")",
+      "Bash(node -e \"const p = require\\(''./node_modules/react/package.json''\\); console.log\\(''react:'', p.version\\)\")",
+      "Bash(node -e \"const p = require\\(''./node_modules/@stripe/stripe-js/package.json''\\); console.log\\(''@stripe/stripe-js:'', p.version\\)\")"
+    ]
+  }
+}

@@ -1,27 +1,35 @@
-import React from 'react'
-import Link from 'next/link'
-
-import { AiOutlineShopping } from 'react-icons/ai'
-
-import { useStateContext } from '../context/StateContext'
-import Cart from './Cart'
+import React from 'react';
+import Link from 'next/link';
+import { AiOutlineShopping } from 'react-icons/ai';
+import { useStateContext } from '../context/StateContext';
+import Cart from './Cart';
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
+
   return (
     <div className='navbar-container'>
-      <p className='logo'>
-        <Link href='/'>TFLEX Store</Link>
-      </p>
+      <Link href='/' className='logo'>
+        AURA <span>PARFUMS</span>
+      </Link>
 
-      <button onClick={() => setShowCart(true)} type='button' className='cart-icon'>
+      <p className='nav-tagline'>Luxury Fragrances</p>
+
+      <button
+        onClick={() => setShowCart(true)}
+        type='button'
+        className='cart-icon'
+        aria-label={`Open cart, ${totalQuantities} item${totalQuantities !== 1 ? 's' : ''}`}
+      >
         <AiOutlineShopping />
-        <span className='cart-item-qty'>{totalQuantities}</span>
+        {totalQuantities > 0 && (
+          <span className='cart-item-qty'>{totalQuantities}</span>
+        )}
       </button>
 
       {showCart && <Cart />}
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

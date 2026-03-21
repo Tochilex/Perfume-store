@@ -1,43 +1,42 @@
 import React from 'react';
-
 import { client } from '../lib/clients';
 import { Product, FooterBanner, HeroBanner } from '../components';
 
 const Home = ({ products, bannerData }) => {
   return (
     <>
-      <HeroBanner heroBanner={bannerData.length && bannerData[0]}  />
-      
-        
+      {bannerData.length > 0 && (
+        <HeroBanner heroBanner={bannerData[0]} />
+      )}
+
       <div className='products-heading'>
-        <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
+        <h2>Our Fragrances</h2>
+        <p>Handcrafted Luxury · Timeless Scents</p>
       </div>
 
       <div className='products-container'>
-        {products?.map(
-          (product) => <Product key={product._id} product={product} /> )}
+        {products?.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
       </div>
 
-      <FooterBanner footerBanner={bannerData && bannerData[0]} />
+      {bannerData.length > 0 && (
+        <FooterBanner footerBanner={bannerData[0]} />
+      )}
     </>
-  )
-}
+  );
+};
 
-// fubnction to fetch data from sanity
 export const getServerSideProps = async () => {
-
-  // fetch product
   const query = '*[_type == "product"]';
   const products = await client.fetch(query);
 
-  //fetch banner
   const bannerQuery = '*[_type == "banner"]';
   const bannerData = await client.fetch(bannerQuery);
 
   return {
-    props: { products, bannerData }
-  }
-}
+    props: { products, bannerData },
+  };
+};
 
-export default Home
+export default Home;
