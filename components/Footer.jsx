@@ -11,7 +11,7 @@ const Footer = () => {
       <div className='footer-top'>
         <div className='footer-brand'>
           <Link href='/' className='logo'>
-            AURA <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 300 }}>PARFUMS</span>
+            TOLUs<span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 300 }}>PARFUMS</span>
           </Link>
           <p>
             Crafted for those who believe a fragrance is more than a scent — it is a
@@ -59,7 +59,7 @@ const Footer = () => {
       </div>
 
       <div className='footer-bottom'>
-        <p>© {year} AURA Parfums. All rights reserved.</p>
+        <p>© {year} Tolus Parfums. All rights reserved.</p>
         <p>Crafted with passion for luxury.</p>
       </div>
     </div>

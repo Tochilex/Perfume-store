@@ -8,7 +8,7 @@ const Success = () => {
   const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext();
 
   useEffect(() => {
-    localStorage.removeItem('aura_cart');
+    localStorage.removeItem('Tolus_cart');
     setCartItems([]);
     setTotalPrice(0);
     setTotalQuantities(0);
@@ -25,8 +25,8 @@ const Success = () => {
         <p className='email-msg'>A confirmation has been sent to your email inbox.</p>
         <p className='description'>
           Questions? Reach us at{' '}
-          <a className='email' href='mailto:hello@auraparfums.com'>
-            hello@auraparfums.com
+          <a className='email' href='mailto:hello@Tolusparfums.com'>
+            hello@Tolusparfums.com
           </a>
         </p>
         <Link href='/' className='btn'>

@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className='navbar-container'>
       <Link href='/' className='logo'>
-        AURA <span>PARFUMS</span>
+        TOLUs <span>PARFUMS</span>
       </Link>
 
       <p className='nav-tagline'>Luxury Fragrances</p>

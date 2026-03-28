@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <div className='layout'>
       <Head>
-        <title>AURA Parfums — Luxury Fragrances</title>
+        <title>TOLUs Parfums — Luxury Fragrances</title>
         <meta name='description' content='Discover our curated collection of luxury perfumes and fragrances. Elegance in every bottle.' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />

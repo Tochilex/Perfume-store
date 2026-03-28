@@ -14,7 +14,7 @@ export const StateContext = ({ children }) => {
 
   // Persist cart to localStorage
   useEffect(() => {
-    const savedCart = localStorage.getItem("aura_cart");
+    const savedCart = localStorage.getItem("Tolus_cart");
     if (savedCart) {
       try {
         const { items, price, quantities } = JSON.parse(savedCart);
@@ -29,7 +29,7 @@ export const StateContext = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem(
-      "aura_cart",
+      "Tolus_cart",
       JSON.stringify({ items: cartItems, price: totalPrice, quantities: totalQuantities })
     );
   }, [cartItems, totalPrice, totalQuantities]);
@@ -84,15 +84,19 @@ export const StateContext = ({ children }) => {
 
   const toggleCartItemQuantity = (id, value) => {
     const foundProduct = cartItems.find((item) => item._id === id);
-    const newCartItems = cartItems.filter((item) => item._id !== id);
+    if (!foundProduct) return;
 
     if (value === "inc") {
-      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }]);
+      setCartItems(cartItems.map((item) =>
+        item._id === id ? { ...item, quantity: item.quantity + 1 } : item
+      ));
       setTotalPrice((prev) => prev + foundProduct.price);
       setTotalQuantities((prev) => prev + 1);
     } else if (value === "dec") {
       if (foundProduct.quantity > 1) {
-        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }]);
+        setCartItems(cartItems.map((item) =>
+          item._id === id ? { ...item, quantity: item.quantity - 1 } : item
+        ));
         setTotalPrice((prev) => prev - foundProduct.price);
         setTotalQuantities((prev) => prev - 1);
       }

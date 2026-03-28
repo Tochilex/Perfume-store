@@ -65,7 +65,7 @@ const ProductDetails = ({ product, products }) => {
           <span className='detail-label'>About this fragrance</span>
           <p>{details}</p>
 
-          <p className='price'>${price}</p>
+          <p className='price'>₦{price?.toLocaleString('en-NG')}</p>
 
           <div className='quantity'>
             <h3>Quantity</h3>

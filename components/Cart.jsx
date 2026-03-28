@@ -99,7 +99,7 @@ const Cart = () => {
                   />
                   <div className='item-desc'>
                     <p className='item-name'>{item.name}</p>
-                    <p className='item-price'>${item.price}</p>
+                    <p className='item-price'>₦{item.price}</p>
                     <div className='item-controls'>
                       <p className='quantity-desc'>
                         <span
@@ -134,7 +134,7 @@ const Cart = () => {
             <div className='cart-bottom'>
               <div className='total'>
                 <h3>Subtotal</h3>
-                <span className='total-price'>${totalPrice.toFixed(2)}</span>
+                <span className='total-price'>₦{totalPrice.toLocaleString('en-NG')}</span>
               </div>
               <p className='checkout-note'>Shipping &amp; taxes calculated at checkout</p>
               <div className='btn-container'>
